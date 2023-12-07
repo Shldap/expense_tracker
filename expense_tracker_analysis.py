@@ -1,3 +1,4 @@
+
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.cluster import KMeans
@@ -14,7 +15,7 @@ class ExpenseTrackerAnalysis:
         self.expenses = expenses
 
     def plot_category_spending(self):
-       category_spending = {}
+           category_spending = {}
         for category in self.categories:
             category_spending[category] = sum(amount for cat, amount in self.expenses if cat == category)
 
@@ -39,8 +40,9 @@ class ExpenseTrackerAnalysis:
         print("Max Spending:", max_spending)
         print("Min Spending:", min_spending)
 
+
     def forecast_spending(self):
-        # Prepare data for forecasting
+       # Prepare data for forecasting
         x = np.arange(len(self.expenses))
         y = np.array([amount for _, amount in self.expenses])
 
@@ -60,9 +62,8 @@ class ExpenseTrackerAnalysis:
         plt.title("Spending Forecast")
         plt.legend()
         plt.show()
-
     def perform_clustering(self):
-        # Prepare data for clustering
+       # Prepare data for clustering
         X = np.array([(amount,) for _, amount in self.expenses])
 
         # Perform K-means clustering
@@ -77,7 +78,7 @@ class ExpenseTrackerAnalysis:
         plt.show()
 
     def detect_anomalies(self):
-        # Prepare data for anomaly detection
+               # Prepare data for anomaly detection
         X = np.array([(amount,) for _, amount in self.expenses])
 
         # Perform anomaly detection using Isolation Forest
@@ -99,3 +100,29 @@ class ExpenseTrackerAnalysis:
         plt.xlabel("Spending")
         plt.title("Anomaly Detection")
         plt.show()
+
+    def count_investments(self):
+        investment_categories = ['stocks', 'bonds', 'real estate']  # Adjust to your investment categories
+
+        investment_count = 0
+        for category in self.categories:
+            if category in investment_categories:
+                investment_count += 1
+
+        print("Investment Count:", investment_count)
+
+    def analyze_investments(self):
+        investment_categories = ['stocks', 'bonds', 'real estate']  # Adjust to your investment categories
+
+        investment_expenses = [(category, amount) for category, amount in self.expenses if category in investment_categories]
+        investment_amounts = [amount for _, amount in investment_expenses]
+
+        total_investment = sum(investment_amounts)
+        average_investment = np.mean(investment_amounts)
+        max_investment = max(investment_amounts)
+        min_investment = min(investment_amounts)
+
+        print("Total Investment:", total_investment)
+        print("Average Investment:", average_investment)
+        print("Max Investment:", max_investment)
+        print("Min Investment:", min_investment)
