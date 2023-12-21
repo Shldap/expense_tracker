@@ -1,4 +1,3 @@
-
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.cluster import KMeans
@@ -15,7 +14,7 @@ class ExpenseTrackerAnalysis:
         self.expenses = expenses
 
     def plot_category_spending(self):
-           category_spending = {}
+        category_spending = {}
         for category in self.categories:
             category_spending[category] = sum(amount for cat, amount in self.expenses if cat == category)
 
@@ -28,7 +27,6 @@ class ExpenseTrackerAnalysis:
         plt.title("Category Spending")
         plt.show()
 
-
     def analyze_spending(self):
         total_spending = sum(amount for _, amount in self.expenses)
         average_spending = np.mean([amount for _, amount in self.expenses])
@@ -40,9 +38,8 @@ class ExpenseTrackerAnalysis:
         print("Max Spending:", max_spending)
         print("Min Spending:", min_spending)
 
-
     def forecast_spending(self):
-       # Prepare data for forecasting
+        # Prepare data for forecasting
         x = np.arange(len(self.expenses))
         y = np.array([amount for _, amount in self.expenses])
 
@@ -62,8 +59,9 @@ class ExpenseTrackerAnalysis:
         plt.title("Spending Forecast")
         plt.legend()
         plt.show()
+
     def perform_clustering(self):
-       # Prepare data for clustering
+        # Prepare data for clustering
         X = np.array([(amount,) for _, amount in self.expenses])
 
         # Perform K-means clustering
@@ -78,7 +76,7 @@ class ExpenseTrackerAnalysis:
         plt.show()
 
     def detect_anomalies(self):
-               # Prepare data for anomaly detection
+        # Prepare data for anomaly detection
         X = np.array([(amount,) for _, amount in self.expenses])
 
         # Perform anomaly detection using Isolation Forest
