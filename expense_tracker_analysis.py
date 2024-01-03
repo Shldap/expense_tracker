@@ -123,4 +123,4 @@ class ExpenseTrackerAnalysis:
         print("Total Investment:", total_investment)
         print("Average Investment:", average_investment)
         print("Max Investment:", max_investment)
-        print("Min Investment:", min_investment)
+        print("MinInvestment:", min_investment)
